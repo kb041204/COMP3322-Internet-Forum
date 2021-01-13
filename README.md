@@ -18,7 +18,7 @@ Special characters:
 * T<number>: <number>-th terminal
 * COMMAND{<string>}: types the command <string> to the terminal
 * IN "<path>": navigate to the path <path> with COMMAND{cd}
-* <number>: variable number
+* \<number\>: variable number
 ```
 [Step 0]
 Add "C:\Program Files\MongoDB\Server\4.4\bin" to PATH
