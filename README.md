@@ -14,6 +14,11 @@ http://34.80.155.28:3000/
 
 
 ## How to insert data into the MongoDB server and start the MongoDB and Node server
+Special characters:
+* T<number>: <number>-th terminal
+* COMMAND{<string>}: types the command <string> to the terminal
+* IN "<path>": navigate to the path <path> with COMMAND{cd}
+* <number>: variable number
 ```
 [Step 0]
 Add "C:\Program Files\MongoDB\Server\4.4\bin" to PATH
@@ -79,12 +84,6 @@ Finish, please refer back to Readme for procedure of starting the DB and web ser
 
 
 ## Procedure for starting the MongoDB and web server
-Special characters:
-* T<number>: <number>-th terminal
-* COMMAND{<string>}: types the command <string> to the terminal
-* IN "<path>": navigate to the path <path> with COMMAND{cd}
-* <number>: variable number
-
 ```
 [Step 0]
 Add "C:\Program Files\MongoDB\Server\4.4\bin" to PATH
