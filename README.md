@@ -7,7 +7,7 @@ http://34.80.155.28:3000/
 
 
 ## Environment
-* jQuery: 3.5.1 <installed locally in /project/public/javascripts"
+* jQuery: 3.5.1 <installed locally in /project/public/javascripts>
 * Node.js: 15.0.1
 * Express.js: 4.17.1
 * MongoDB: 4.4.2 Community
