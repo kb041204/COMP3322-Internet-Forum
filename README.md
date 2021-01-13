@@ -15,10 +15,13 @@ ReactJS:	None
 
 
 ## How to insert data into the MongoDB server and start the MongoDB and Node server
+'''
 [Step 0]
 Add "C:\Program Files\MongoDB\Server\4.4\bin" to PATH
 if you install MongoDB 4.4.X Community
+'''
 
+'''
 [Step 1]
 T1:
 IN "project"
@@ -28,7 +31,9 @@ COMMAND{ cd "data" }
 COMMAND{ mongod --dbpath . }
 
 DO NOT CLOSE T1
+'''
 
+'''
 [Step 2]
 T2:
 IN "project"
@@ -65,11 +70,13 @@ COMMAND{ db.questions.insert({'space':"Javascript", 'title':"What is the differe
 COMMAND{ db.questions.insert({'space':"Machine Learning", 'title':"How to learn Machine Learning", 'content':"This is a test problem in the space Machine Learning", 'answer':[ObjectId("<6>")], 'up':[ObjectId("<1>"), ObjectId("<3>")], 'time':new Date("2020-10-10"), 'creatorid':ObjectId("<2>")}) }
 COMMAND{ db.questions.insert({'space':"Algorithm", 'title':"How to learn Algorithm", 'content':"I am wondering where I can find the resource to learn the algorithms", 'answer':[], 'up':[ObjectId("<1>"), ObjectId("<2>")], 'time':new Date("2020-10-09"), 'creatorid':ObjectId("<3>")}) }
 
-
 You can close T2 by COMMAND{ exit } if you do not need to interact with the database directly
+'''
 
+'''
 [Step 3]
 Finish, please refer back to Readme for procedure of starting the DB and web server
+'''
 
 
 ## Procedure for starting the MongoDB and web server
@@ -79,35 +86,44 @@ Special characters:
 * IN "<path>": navigate to the path <path> with COMMAND{cd}
 * <number>: variable number
 
+'''
 [Step 0]
 Add "C:\Program Files\MongoDB\Server\4.4\bin" to PATH
 if you install MongoDB 4.4.X Community
-		
+'''	
+
+'''
 [Step 1] Install all the Node modules (if you have not done so when entering data)
 T1:
 IN "project"
 COMMAND{ npm install }
-		
+'''
+
+'''
 [Step 2] Start the MongoDB database
 T1:
 IN "project"
 COMMAND{ mongod --dbpath ./data }
 
 DO NOT CLOSE T1
+'''
 
+'''
 [Step 3, Optional] Start the MongoShell
 T2:
 IN "project"
 COMMAND{ mongo }
 COMMAND{ use project }
+'''
 
+'''
 [Step 4] Start the Web server
 T3:
 IN "project"
 COMMAND{ npm start }
 		
 DO NOT CLOSE T3
-
+'''
 
 ## Procedure of accessing the website
 Use a browser and go to "http://localhost:3000"
