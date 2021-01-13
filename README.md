@@ -15,9 +15,9 @@ http://34.80.155.28:3000/
 
 ## How to insert data into the MongoDB server and start the MongoDB and Node server
 Special characters:
-* T<number>: <number>-th terminal
-* COMMAND{<string>}: types the command <string> to the terminal
-* IN "<path>": navigate to the path <path> with COMMAND{cd}
+* T\<number\>: \<number\>-th terminal
+* COMMAND{\<string\>}: types the command \<string\> to the terminal
+* IN "\<path\>": navigate to the path \<path\> with COMMAND{cd}
 * \<number\>: variable number
 ```
 [Step 0]
