@@ -1,0 +1,38 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		title Queue Underflow
+		link(rel='stylesheet', href='/stylesheets/index.css')
+		script(src='/javascripts/jquery-3.5.1.js')
+	body
+		header
+			#left
+				#logo
+					span Queue Underflow
+				#home
+					span Home
+				#hot
+					span Hot
+			#middle
+				#filter
+					input
+			#right
+				if user == null
+					a#login(href='/login') Log in
+					a#register(href='/register') Register
+				else
+					#logout
+						span Log out
+		aside
+			p#algo Algorithm
+			p#ml Machine Learning
+			p#sys System
+			p#js Javascript
+		section
+			block content
+		footer
+			p Queue Underflow: Made by. Cyrus Chan (3035536553)
+			p Where developers upvote, answer and lose their self-confidence
+	script(src='/javascripts/index.js')

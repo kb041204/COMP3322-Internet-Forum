@@ -1,0 +1,29 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		title Ask a new question
+		link(rel='stylesheet', href='/stylesheets/new_question.css')
+		script(src='/javascripts/jquery-3.5.1.js')
+	body
+		#new_question
+			a(href='../..') Back
+			h1 Ask your question
+			label Title
+			input#title(type='text')
+			label Space
+			div#space
+				input(type="radio" name="space" value="algo" checked)
+				label Algorithm
+				input(type="radio" name="space" value="ml")
+				label Machine Learning
+				input(type="radio" name="space" value="sys")
+				label System
+				input(type="radio" name="space" value="js")
+				label Javascript
+			label Content
+			textarea#content
+			span test
+			button(type='button',id='btn_submit') Submit
+	script(src='/javascripts/new_question.js')

@@ -1,0 +1,201 @@
+html {
+	font-family: Arial, "Times New Roman";
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+article {
+	padding: 2rem 2rem;
+	background-color: lightblue;
+	border-radius: 2rem;
+	width: 1000px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* box-shadow effect from w3school */
+}
+
+article > div#question_area {
+	margin-top: 1rem;
+}
+
+article > a {
+    text-decoration: none;
+    background-color: #8695a4;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09); /* box-shadow effect from w3school */
+}
+
+button, #question_area > button {
+	text-decoration: none;
+    background-color: #8695a4;
+	font-size: medium;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.25rem;
+	border: 0px;
+	margin-right: 0.25rem;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09); /* box-shadow effect from w3school */
+}
+
+button:hover, #question_area > button:hover {
+	background-color: #6a7b8d;
+}
+
+article > a:hover {
+	background-color: #6a7b8d;
+}
+
+article > a:visited, article > a:active {
+	color: inherit; /*do not change the colour*/
+}
+
+p.user_name {
+	margin: 0.5rem 0;
+}
+
+span.user_name {
+	color: DodgerBlue;
+	font-size: x-large;
+}
+
+#question_area {
+	position: relative;
+}
+
+#question_area > #question_buttons {
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: 0.75rem 0;
+}
+
+h5 { /* question type */
+	margin: 0.75rem 0;
+	display: inline-block;
+	padding: 0.5rem;
+	border: 1px blue solid;
+	border-radius: 0.5rem;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09); /* box-shadow effect from w3school */
+}
+
+.upvote, .answer_btn{
+	display: inline-block;
+	padding: 0.5rem 1.5rem 0.5rem 0;
+	margin-right: 1rem;
+	cursor: pointer;
+}
+
+.answer_area > p {
+	font-size: large;
+}
+
+.answer, .add_new_answer {
+	margin: 1rem 0;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* box-shadow effect from w3school */
+	padding: 1rem;
+	position: relative;
+	background-color: #E3E3E3;
+}
+
+.answer > p {
+	margin: 1rem 0 0 0;
+}
+
+.answer > button {
+	position: absolute;
+	top: 0.75rem;
+	right: 0.5rem;
+}
+
+.add_new_answer > p {
+	font-size: x-large;
+	margin: 0.5rem 0 0 0;
+	color: grey;
+	cursor: pointer;
+}
+
+textarea.new_ans_content {
+	width: 100%;
+}
+
+#edit_question_area {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 2rem 0;
+	width: 600px;
+	padding: 0.5rem;
+	background-color: #B3B3B3;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* box-shadow effect from w3school */
+}
+
+#edit_question_area > label:nth-child(3), #edit_question_area > label:nth-child(5) {
+	margin-top: 1rem;
+}
+
+#edit_question_area > #title {
+	width: 100%;
+}
+
+#edit_question_area > #content {
+	width: 100%;
+	resize: none;
+	height: 8rem;
+}
+
+#edit_question_area > button {
+	margin-top: 0.5rem;
+	background-color: lightblue;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09); /* box-shadow effect from w3school */
+}
+
+#edit_question_area > button:hover {
+	background-color: #89b9c8;
+}
+
+/* Smaller screen than 1080px */
+@media only screen and (max-width: 1079px) {
+	article {
+		padding: 1rem 1rem;
+		width: 90%;
+	}
+	
+	article > div#question_area {
+		margin-top: 0.5rem;
+	}
+	
+	span.user_name {
+		font-size: medium;
+	}
+	
+	button, #question_area > button {
+		padding: 0.25rem 0.5rem;
+	}
+	
+	article > a {
+		padding: 0.5rem 0.75rem;
+	}
+	
+	#question_detail > h1 {
+		font-size: medium;
+	}
+	
+	.answer_area > p {
+		font-size: medium;
+	}
+	
+	.add_new_answer > p {
+		font-size: medium;
+	}
+	
+	#edit_question_area {
+		margin: 1rem 0;
+		width: auto;
+	}
+	
+	#edit_question_area > textarea { /* larger space for textarea */
+		height: 8rem;
+	}
+}

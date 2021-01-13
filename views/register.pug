@@ -1,0 +1,166 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		title Register
+		link(rel='stylesheet', href='/stylesheets/login_and_register.css')
+		script(src='/javascripts/jquery-3.5.1.js')
+	body
+		#register_ac
+			a(href='..') Back
+			h1 Create an account
+			table
+				tbody
+					tr
+						td
+							label Name
+						td
+							input#name(type='text')
+					tr
+						td
+							label Email
+						td
+							input#email(type='email')
+					tr
+						td
+							label Password
+						td
+							input#password(type='password')
+					tr
+						td
+							label Confirm password
+						td
+							input#confirm_pw(type='password')
+			span test
+			button(type='button',id='btn_reg') Register
+	script.
+		var name_input = document.getElementById("name");
+		var email_input = document.getElementById("email");
+		var pw_input = document.getElementById("password");
+		var confirm_pw_input = document.getElementById("confirm_pw");
+		var btn_reg = document.getElementById("btn_reg");
+		
+		function span_change(msg) {
+			if(msg === undefined) {
+				$("span").text("");
+				$("span").css("display", "none");
+			} else {
+				$("span").text(msg);
+				$("span").css("display", "block");
+			}
+		}
+		
+		function check_password() {
+			if(confirm_pw_input.value != pw_input.value) {
+				span_change("Password does not match!");
+				return false;
+			} else {
+				span_change();
+				return true;
+			}
+		}
+		
+		email_input.addEventListener("blur", function (evt) {
+			//check email address
+			if(!email_input.checkValidity()) {
+				span_change("Email format is incorrect!");
+				return;
+			} else {
+				//AJAX request to DB to check duplicate email address
+				var chkEmail = email_input.value;
+				var chkEmailObj = {
+					'email': chkEmail
+				}
+				$.ajax({
+					type: 'POST',
+					data: chkEmailObj,
+					url: '/users/checkEmail',
+					dataType: 'JSON'
+				}).done(function (response) {
+					if(response.msg === '') {
+						//not repeated
+						span_change();
+						if(confirm_pw_input.value !== "" && pw_input.value !== "")
+							check_password();
+					} else {
+						span_change("Duplicated user's email address");
+						return;
+					}
+				});
+			}
+		});
+		
+		pw_input.addEventListener("blur", function (evt) {
+			if(confirm_pw_input.value !== "")
+				check_password();
+		});
+		
+		confirm_pw_input.addEventListener("blur", function (evt) {
+			if(pw_input.value !== "")
+				check_password();
+		});
+		
+		btn_reg.addEventListener("click", function (evt) {
+			if(name_input.value.includes("<") && name_input.value.includes(">")) {
+				alert("User name cannot contains the symbol \"<\" and \">\"");
+				return;
+			}
+		
+			if(name_input.value == "" || email_input.value == "" || pw_input.value == "" || confirm_pw_input.value == "" ) {
+				span_change("Please fill in all the fields");
+			} else {
+				//Check email address
+				if(!email_input.checkValidity()) {
+					span_change("Email format is incorrect!");
+					return;
+				} else {
+					//AJAX request to DB to check duplicate email address
+					var chkEmail = email_input.value;
+					var chkEmailObj = {
+						'email': chkEmail
+					}
+					$.ajax({
+						type: 'POST',
+						data: chkEmailObj,
+						url: '/users/checkEmail',
+						dataType: 'JSON'
+					}).done(function (response) {
+						if(response.msg === '') {
+							//not repeated, check password
+							if(check_password()) {
+								//both email and password ok
+								
+								var newName = name_input.value;
+								var newEmail = email_input.value;
+								var newPw = pw_input.value;
+								var newUser = {
+									'name': newName,
+									'email': newEmail,
+									'password': newPw
+								}
+								
+								//send AJAX request to MongoDB
+								$.ajax({
+									type: 'POST',
+									data: newUser,
+									url: '/users/add',
+									dataType: 'JSON'
+								}).done(function (response) {
+									if(response.msg === '') {
+										//successful registration
+										window.location.href = "..";
+									} else {
+										//error in server side
+										alert('Error in registration on server-side: ' + response.msg);
+									}
+								});
+							}
+						} else  {
+							span_change("Duplicated user's email address");
+							return;
+						}
+					});
+				}
+			}
+		});

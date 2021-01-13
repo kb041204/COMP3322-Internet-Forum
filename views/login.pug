@@ -1,0 +1,79 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		title Login
+		link(rel='stylesheet', href='/stylesheets/login_and_register.css')
+		script(src='/javascripts/jquery-3.5.1.js')
+	body
+		#login
+			a(href='..') Back
+			h1 Sign In
+			table
+				tbody
+					tr
+						td
+							label Email
+						td
+							input#email(type='email')
+					tr
+						td
+							label Password
+						td
+							input#password(type='password')
+			span test
+			button(type='button',id='btn_login') Log in
+		#register
+			h3 Do not have an account?
+			button(type='button',id='btn_register',onclick='window.location.href="../register";') Register
+			
+	script.
+		var email_input = document.getElementById("email");
+		var pw_input = document.getElementById("password");
+		var btn_login = document.getElementById("btn_login");
+		
+		email_input.addEventListener("blur", function (evt) {
+			if(!email_input.checkValidity()) {
+				$("span").text("Email format is incorrect!");
+				$("span").css("display", "block");
+			} else {
+				$("span").text("");
+				$("span").css("display", "none");
+			}
+		});
+		
+		btn_login.addEventListener("click", function (evt) {
+			if(email_input.value == "" || pw_input.value == "") {
+				$("span").text("Please enter both email and password");
+				$("span").css("display", "block");
+			} else {
+				$("span").text("");
+				$("span").css("display", "none");
+				
+				//AJAX request to validate user
+				var chkEmail = email_input.value;
+				var chkPw = pw_input.value;
+				var chkUser = {
+					'email': chkEmail,
+					'password': chkPw
+				}
+				$.ajax({
+					type: 'POST',
+					data: chkUser,
+					url: '/users/validate',
+					dataType: 'JSON'
+				}).done(function (response) {
+					if(response.msg === '') {
+						//user validated
+						
+						//redirect to main page
+						window.location.href = "..";
+					} else {
+						$("span").text(response.msg);
+						$("span").css("display", "block");
+						pw_input.value = ''; //clear password field
+					}
+				});
+			}
+		});

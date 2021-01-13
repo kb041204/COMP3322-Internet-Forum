@@ -1,0 +1,109 @@
+html {
+	font-family: Arial, "Times New Roman";
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+div#login, div#register_ac {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem 6rem;
+	background-color: lightblue;
+	border-radius: 2rem;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* box-shadow effect from w3school */
+}
+
+div#login > a, div#register_ac > a { /* Back button */
+	align-self: flex-start;
+	text-decoration: none;
+	background-color: #8695a4;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	font-size: large;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09); /* box-shadow effect from w3school */
+}
+
+button {
+	background-color: #8695a4;
+	padding: 0.5rem 1rem;
+	border: 0;
+	border-radius: 0.25rem;
+	font-size: large;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09); /* box-shadow effect from w3school */
+}
+
+button:hover {
+	background-color: #6a7b8d;
+	cursor: pointer;
+}
+
+div#login > a:hover, div#register_ac > a:hover {
+	background-color: #6a7b8d;
+}
+
+div#login > a:visited, div#register_ac > a:visited, div#login > a:active, div#register_ac > a:active {
+	color: inherit; /*do not change the colour*/
+}
+
+div#login button, div#register_ac button {
+	margin-top: 1rem;
+}
+
+span {
+	display: none;
+	color: red;
+	margin: 1rem 0 0 0;
+}
+
+div#login>button, div#register_ac>button {
+	padding: 0.25rem 1rem;
+}
+
+input {
+	width: 15rem;
+}
+
+div#register>button{
+	background-color: #a8b7c6;
+}
+
+div#register>button:hover{
+	background-color: #8695a4;
+}
+
+div#register {
+	padding: 2rem;
+}
+
+/* Smaller screen than 1080px */
+@media only screen and (max-width: 1079px) {
+	div#login, div#register_ac {
+		padding: 1rem 2rem;
+		border-radius: 1rem;
+	}
+		
+	div#login > a, div#register_ac > a { /* Back button */
+		padding: 0.25rem 0.5rem;
+		font-size: medium;
+	}
+	
+	button {
+		padding: 0.25rem 0.5rem;
+		font-size: medium;
+	}
+	
+	div#register {
+		padding: 1rem;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	div#login, div#register_ac {
+		width: 80%;
+	}
+}

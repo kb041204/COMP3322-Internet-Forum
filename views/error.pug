@@ -1,0 +1,8 @@
+extends layout
+
+block content
+	h1= message
+	h2= error.status
+	pre #{error.stack}
+	p Please send this page to the developer's email: kb041204@connect.hku.hk
+	a(href='/') Go back to main page

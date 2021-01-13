@@ -1,0 +1,460 @@
+html {
+	font-family: Arial, "Times New Roman";
+}
+
+body {
+	margin: 0;
+}
+
+header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	position: sticky;
+	width: 100%;
+	top: 0;
+	background-color: lightblue;
+	z-index: 9999; /*always on the top*/
+}
+
+header > div#left,  header > div#middle, header > div#right {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+}
+
+header > div#left > div, header > div#middle, header > div#right > a, header > div#right > div {
+	float: left;
+	padding: 1rem 1.5rem;
+}
+
+header > div#right > a {
+	text-decoration: none; /*remove underscore*/
+}
+
+header > div#right > a, header > div#right > a:visited, header > div#right > a:active {
+	color: inherit; /*do not change the colour*/
+}
+
+header > div#left > div:hover, header > div#right > a:hover, header > div#right > div:hover {
+	cursor: pointer;
+	background-color: LightSlateGrey;
+}
+
+header > div#middle > div#filter > input {
+	width: 20rem;
+}
+
+header a, header span {
+	font-size: large;
+}
+
+aside {
+	background-color: lightgrey;
+	float: left;
+	position: absolute;
+	height: 100%; /*adjusted by JS*/
+	top: 61px; /*calcualte by Javascript*/
+}
+
+aside > p {
+	margin: 0;
+	padding: 1.5rem 7rem 1.5rem 2rem;
+	cursor: pointer;
+}
+
+aside > p:hover {
+	background-color: LightSteelBlue;
+}
+
+section > div#label {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* box-shadow effect from w3school */
+	margin-bottom: 1.5rem;
+	padding: 0.5rem;
+}
+
+section > div#label > span, section > div#label > a { /*span and What is your question?*/
+	color: LightGray;
+	font-size: large;
+	float: left;
+	clear: left;
+	padding: 0.5rem;
+}
+
+section > div#label > span.user_name { /*span and What is your question?*/
+	color: DodgerBlue;
+	font-size: x-large;
+}
+
+section > div#label > a {
+	text-decoration: none;
+}
+
+section > div#label > a:visited, section > div#label > a:active {
+	color: lightgrey; /*do not change the colour*/
+}
+
+span.user_name {
+	color: DodgerBlue;
+	font-size: x-large;
+}
+
+section > div#questions {
+	width: 100% /*replaced by JS*/
+}
+
+section > div#questions > article > h1 { /* question title */
+	cursor: pointer;
+}
+
+section > div#questions > article > h5 { /* question type */
+	margin: 0.75rem 0 0.75rem 0;
+	display: inline-block;
+	padding: 0.5rem;
+	border: 1px blue solid;
+	border-radius: 0.5rem;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09); /* box-shadow effect from w3school */
+}
+
+section {
+	margin-left: 300px; /*calcualte by Javascript*/
+	padding: 1rem 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+section > button#ask_question {
+	align-self: flex-end; /*right hand side*/
+	background-color: LightBlue;
+	padding: 0.5rem 1rem;
+	font-size: large;
+}
+
+section > div#questions > article {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* box-shadow effect from w3school */
+	margin-bottom: 2rem;
+	padding: 0.5rem 1rem;
+}
+
+.upvote, .answer_btn{
+	display: inline-block;
+	padding: 0.5rem 1.5rem 0.5rem 0;
+	margin-right: 1rem;
+	cursor: pointer;
+}
+
+.answer, .add_new_answer {
+	margin: 1rem 0;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.09); /* box-shadow effect from w3school */
+	padding: 1rem;
+	background-color: #F3F3F3;
+}
+
+.answer > p {
+	margin: 1rem 0 0 0;
+}
+
+.add_new_answer > p {
+	font-size: x-large;
+	margin: 0.5rem 0 0 0;
+	color: #A3A3A3;
+	cursor: pointer;
+}
+
+.new_ans_area > button {
+	text-decoration: none;
+    background-color: #add8e6;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+	border: 0px;
+	margin: 0.25rem 0.5rem 0 0;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09); /* box-shadow effect from w3school */
+}
+
+.new_ans_area > button:hover {
+	background-color: #71b5cc;
+}
+
+textarea.new_ans_content {
+	width: 100%;
+	resize: none;
+}
+
+footer {
+	text-align: center;
+}
+
+footer > p {
+	margin: 0.5rem;
+}
+
+footer > p:nth-child(2) {
+	font-style: italic; 
+}
+
+/* Smaller screen than 1080px, but not smaller than 700px */
+@media only screen and (min-width: 700px) and (max-width: 1079px) {
+	header > div#left > div, header > div#middle, header > div#right > a, header > div#right > div {
+		padding: 0.5rem 0.75rem;
+	}
+	
+	header > div#middle > div#filter > input {
+		width: 15rem;
+	}
+	
+	header a, header span {
+		font-size: medium;
+	}
+	
+	aside > p {
+		padding: 1rem 2rem 1rem 1rem;
+	}
+	
+	section {
+		padding: 0.5rem 0.75rem;
+	}
+	
+	section > div#label {
+		margin-bottom: 0.75rem;
+		padding: 0.25rem;
+	}
+
+	section > div#label > span, section > div#label > a { /*span and What is your question?*/
+		font-size: medium;
+		padding: 0.25rem;
+	}
+
+	section > div#label > span.user_name { /*span and What is your question?*/
+		font-size: large;
+	}
+	
+	span.user_name {
+		font-size: large;
+	}
+	
+	section > button#ask_question {
+		padding: 0.25rem 0.5rem;
+		font-size: medium;
+	}
+	
+	section > div#questions > article > h1 { /* question title */
+		font-size: large;
+	}
+
+	section > div#questions > article > h5 { /* question type */
+		margin: 0.5rem 0 0.5rem 0;
+		padding: 0.25rem;
+		border-radius: 0.25rem;
+	}
+	
+	section > div#questions > article {
+		margin-bottom: 1rem;
+	}
+	
+	.upvote, .answer_btn{
+		padding: 0.25rem 1rem 0.25rem 0;
+		margin-right: 0.5rem;
+	}
+
+	.answer, .add_new_answer {
+		margin: 0.5rem 0;
+		padding: 0.5rem;
+	}
+	
+	.answer > p {
+		margin: 0.5rem 0 0 0;
+	}
+
+	.add_new_answer > p {
+		font-size: large;
+	}
+	
+	footer > p {
+		margin: 0.25rem;
+	}
+}
+
+/* smaller than 700px but larger than 520px */
+@media only screen and (min-width: 520px) and (max-width: 699px){
+	header > div#left > div, header > div#middle, header > div#right > a, header > div#right > div {
+		padding: 0.25rem 0.5rem;
+	}
+	
+	header > div#middle > div#filter > input {
+		width: 10rem;
+	}
+	
+	header a, header span {
+		font-size: medium;
+	}
+	
+	aside > p {
+		padding: 0.75rem 0.25rem;
+	}
+	
+	section {
+		padding: 0.5rem 0.75rem;
+	}
+	
+	section > div#label {
+		margin-bottom: 0.75rem;
+		padding: 0.25rem;
+	}
+
+	section > div#label > span, section > div#label > a { /*span and What is your question?*/
+		font-size: medium;
+		padding: 0.25rem;
+	}
+
+	section > div#label > span.user_name { /*span and What is your question?*/
+		font-size: medium;
+	}
+	
+	span.user_name {
+		font-size: medium;
+	}
+	
+	section > button#ask_question {
+		padding: 0.25rem 0.5rem;
+		font-size: medium;
+	}
+	
+	section > div#questions > article > h1 { /* question title */
+		font-size: medium;
+		margin: 0.5rem 0;
+	}
+	
+	section > div#questions > article > p { /* question content */
+		margin: 0.5rem 0;
+	}
+
+	section > div#questions > article > h5 { /* question type */
+		margin: 0.5rem 0 0.5rem 0;
+		padding: 0.25rem;
+		border-radius: 0.25rem;
+	}
+	
+	section > div#questions > article {
+		margin-bottom: 0.5rem;
+	}
+	
+	.upvote, .answer_btn{
+		padding: 0.25rem 0.5rem 0.25rem 0;
+		margin-right: 0.5rem;
+	}
+
+	.answer, .add_new_answer {
+		margin: 0.25rem 0;
+		padding: 0.25rem;
+	}
+	
+	.answer > p {
+		margin: 0.25rem 0 0 0;
+	}
+
+	.add_new_answer > p {
+		font-size: medium;
+	}
+	
+	footer > p {
+		margin: 0.25rem;
+	}
+}
+
+/* smaller than 520px, need to convert side bar <aside> to top bar */
+@media only screen and (max-width: 519px){
+	header > div#left > div, header > div#middle, header > div#right > a, header > div#right > div {
+		padding: 0.25rem 0.25rem;
+	}
+	
+	header > div#middle > div#filter > input {
+		width: 8rem;
+	}
+	
+	header a, header span {
+		font-size: small;
+	}
+	
+	aside {
+		display: flex;
+		height: auto;
+		float: none;
+		position: static;
+	}
+	
+	aside > p {
+		padding: 0.5rem 0.5rem;
+		font-size: small;
+		display: inline;
+	}
+	
+	section {
+		margin-left: 0;
+		padding: 0.5rem 0.75rem;
+	}
+	
+	section > div#label {
+		margin-bottom: 0.75rem;
+		padding: 0.25rem;
+	}
+
+	section > div#label > span, section > div#label > a { /*span and What is your question?*/
+		font-size: small;
+		padding: 0.25rem;
+	}
+
+	section > div#label > span.user_name { /*span and What is your question?*/
+		font-size: medium;
+	}
+	
+	span.user_name {
+		font-size: medium;
+	}
+	
+	section > button#ask_question {
+		padding: 0.25rem 0.25rem;
+		font-size: small;
+	}
+	
+	section > div#questions > article > h1 { /* question title */
+		font-size: medium;
+		margin: 0.5rem 0;
+	}
+	
+	section > div#questions > article > p { /* question content */
+		margin: 0.5rem 0;
+	}
+
+	section > div#questions > article > h5 { /* question type */
+		margin: 0.5rem 0 0.5rem 0;
+		padding: 0.25rem;
+		border-radius: 0.25rem;
+	}
+	
+	section > div#questions > article {
+		margin-bottom: 0.5rem;
+	}
+	
+	.upvote, .answer_btn{
+		padding: 0.25rem 0.5rem 0.25rem 0;
+		margin-right: 0.5rem;
+	}
+
+	.answer, .add_new_answer {
+		margin: 0.25rem 0;
+		padding: 0.25rem;
+	}
+	
+	.answer > p {
+		margin: 0.25rem 0 0 0;
+	}
+
+	.add_new_answer > p {
+		font-size: small;
+	}
+	
+	footer > p {
+		margin: 0.25rem;
+	}
+}

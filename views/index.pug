@@ -1,0 +1,48 @@
+extends layout.pug
+
+block content
+	//-Displays the Ask question button
+	if user != null
+		button(type='button',id='ask_question',onclick="window.location.replace('/questions/new')") Ask Question
+
+	//-Lists out the label "What is your question?"
+	if user != null
+		#label
+			span(class='user_name')= user.name
+			a(href='/questions/new') What is your question?
+	
+	//-Lists out all the questions
+	div#questions
+		each question in data
+			article(id=question._id)
+				h5= question.space
+				- var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+				br
+				span(class='user_name')= question.creatorname
+				span= " posted at " + question.time.getDate() + ' ' + months[question.time.getMonth()] + ' ' + question.time.getFullYear()
+				h1(onclick="window.location.replace('/questions/detail/" + question._id + "')")= question.title
+				p= question.content
+				if user != null
+					.upvote(onclick="upvote('" + question._id + "', '" + user._id +"', this)")
+						if question.upvoted
+							img(src='images/upvoted.png')
+							span= " Upvote (" + question.up.length + ")"
+						else
+							img(src='images/upvote.png')
+							span= " Upvote (" + question.up.length + ")"
+				else
+					.upvote(style="cursor: default") 
+						img(src='images/upvote.png')
+						span= " Upvote (" + question.up.length + ")"
+				.answer_btn(onclick="show_answers(this)")
+					span= "Answer (" + question.answer.length + ")"
+				.answer_area(style='display: none')
+					each ans in question.detailAnswers
+						.answer(id=ans.id)
+							span(class='user_name')= ans.uname
+							span= " posted at " + ans.time.getDate() + ' ' + months[ans.time.getMonth()] + ' ' + ans.time.getFullYear()
+							p= ans.content
+					if user != null
+						.add_new_answer
+							span(class='user_name')= user.name
+							p(onclick="show_new_answer('" + question._id + "', '" + user._id +"', this)") Post your new answer
